@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-box {
+    position: absolute;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.hover-box:hover {
+    border-color: yellow;
+}
+
+.hover-box::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    top: -30px;
+    left: 0;
+    white-space: nowrap;
+    display: none;
+    z-index: 10;
+}
+
+.hover-box:hover::after {
+    display: block;
+}
+
+.slide-panel {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    transition: right 0.3s;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.slide-panel.open {
+    right: 0;
+}
+
+.panel-content {
+    padding: 20px;
+}
+
+.close-btn {
+    cursor: pointer;
+}
